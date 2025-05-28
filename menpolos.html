@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WAFFLE OVERSIZED T-SHIRT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+    }
+    .container {
+      max-width: 100%;
+      padding: 10px;
+    }
+    h2 {
+      text-align: center;
+      font-size: 24px;
+    }
+    .dropdown {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+    select {
+      padding: 8px 14px;
+      font-size: 18px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 18px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 16px 10px;
+    }
+    th {
+      background-color: #E6A8B8;
+      color: black;
+      font-size: 19px;
+    }
+
+    @media screen and (max-width: 600px) {
+      table {
+        font-size: 20px;
+      }
+      th, td {
+        padding: 18px 12px;
+      }
+      select {
+        font-size: 20px;
+      }
+      h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>WAFFLE OVERSIZED T-SHIRT</h2>
+    <div class="dropdown">
+      <label for="unit-select">Size in: </label>
+      <select id="unit-select" onchange="toggleUnits()">
+        <option value="inches" selected>Inches</option>
+        <option value="cm">Centimeters</option>
+      </select>
+    </div>
+
+    <table id="size-chart">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>CHEST</th>
+          <th>LENGTH</th>
+          <th>SHOULDER</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>S</th>
+          <td data-in="18.3" data-cm="46.5">18.3</td>
+          <td data-in="27.2" data-cm="69">27.2</td>
+          <td data-in="15.6" data-cm="39.5">15.6</td>
+        </tr>
+        <tr>
+          <th>M</th>
+          <td data-in="19.3" data-cm="49">19.3</td>
+          <td data-in="28.0" data-cm="71">28.0</td>
+          <td data-in="16.3" data-cm="41.5">16.3</td>
+        </tr>
+        <tr>
+          <th>L</th>
+          <td data-in="20.3" data-cm="51.5">20.3</td>
+          <td data-in="28.7" data-cm="73">28.7</td>
+          <td data-in="17.1" data-cm="43.5">17.1</td>
+        </tr>
+        <tr>
+          <th>XL</th>
+          <td data-in="21.3" data-cm="54">21.3</td>
+          <td data-in="29.5" data-cm="75">29.5</td>
+          <td data-in="17.9" data-cm="45.5">17.9</td>
+        </tr>
+        <tr>
+          <th>XXL</th>
+          <td data-in="22.2" data-cm="56.5">22.2</td>
+          <td data-in="30.3" data-cm="77">30.3</td>
+          <td data-in="18.7" data-cm="47.5">18.7</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function toggleUnits() {
+      const unit = document.getElementById('unit-select').value;
+      const cells = document.querySelectorAll('#size-chart td');
+      cells.forEach(cell => {
+        cell.textContent = cell.getAttribute(unit === 'cm' ? 'data-cm' : 'data-in');
+      });
+    }
+  </script>
+</body>
+</html>
